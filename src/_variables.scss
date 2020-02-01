@@ -1,0 +1,32 @@
+$icomoon-font-family: "icomoon" !default;
+$icomoon-font-path: "../typography/fonts" !default;
+
+$icon-eye: "\e900";
+$icon-home: "\e901";
+$icon-mail: "\e904";
+$icon-settings: "\e905";
+$icon-sliders: "\e907";
+$icon-user: "\e908";
+$icon-facebook: "\e902";
+$icon-github: "\e903";
+$icon-linkedin: "\e906";
+$icon-twitter: "\e90c";
+
+///COLORS////////////////////////
+//$color-primary: #eb2f64;
+
+$media-box-bg-color: #161718;
+$nav-bar-bg-color: #161718;
+$main-txt-header: white; ///header h1 section
+$color-primary-blue: #79fef9;
+$color-primary-grey: #515152;
+$bg-color-grid-txt: #202122;
+
+///OTHER VARIABLES////////////////////////
+$b-btm-media-icon: 1px solid #515152; //// change to a variable
+
+///GRID/////////////////////////////
+$grid-width: 140rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 1rem;

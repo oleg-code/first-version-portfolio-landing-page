@@ -1,0 +1,680 @@
+///BURGER STYLING////////////////////////
+.burger {
+  position: fixed;
+  top: 1.5rem;
+  right: 2.5rem;
+  z-index: 1000;
+
+  &__box {
+    height: 3.5rem;
+    width: 3.5rem;
+    cursor: pointer;
+    display: block;
+  }
+
+  &__bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 80px;
+    background-color: #79fef9;
+    position: absolute;
+    top: 50%;
+    margin: auto;
+
+    &::after,
+    &::before {
+      content: "";
+      width: 100%;
+      border-radius: 80px;
+      height: 2px;
+      position: absolute;
+      background-color: #79fef9;
+      backface-visibility: hidden;
+      transition: all 0.1s;
+    }
+
+    &::before {
+      top: 1.1rem;
+    }
+    &::after {
+      top: -1.1rem;
+    }
+  }
+
+  &:hover &__bar {
+    background-color: #fa782e;
+  }
+
+  &:hover &__bar::before {
+    top: 1.2rem;
+    background-color: #fa782e;
+  }
+
+  &:hover &__bar::after {
+    top: -1.2rem;
+    background-color: #fa782e;
+  }
+}
+/////THREE BARS TRANSFORM TO A CROSS//////
+.header {
+  &__checkbox {
+    display: none; ///HIDE CHECKBOX////
+  }
+
+  &__checkbox:checked + .burger .burger__bar {
+    background: transparent;
+    transition: background 0.2s ease-in;
+  }
+
+  &__checkbox:checked + .burger .burger__bar::before {
+    top: 0;
+    transform: rotate(135deg);
+    transition: transform 0.3s;
+  }
+
+  &__checkbox:checked + .burger .burger__bar::after {
+    top: 0;
+    transform: rotate(-135deg);
+    transition: transform 0.3s;
+  }
+
+  /////NAVIGATION STYLES/////////////////////////
+}
+.nav {
+  padding: 1rem 1.5rem;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  transform: translate(50%, -50%);
+  font-size: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 300;
+
+  &__item {
+  }
+
+  &__text {
+    color: $main-txt-header;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 5rem;
+  }
+}
+
+////STYLING RIGHT SIDE OF MAIN-SECTION///////////////////////////////////////
+.main-section {
+  &__right-container {
+    font-size: 1.8rem;
+    height: 100%;
+    line-height: 4rem;
+    color: $main-txt-header;
+    position: relative;
+  }
+
+  &__img-box {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    display: block;
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    border: solid 3px #fa782e; //// change to a variable
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__my-img {
+    width: 100%;
+  }
+
+  &__text-zone {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(100%, -50%);
+  }
+
+  &__txt-secondary {
+    color: $color-primary-blue;
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+
+  &__txt-bold::before,
+  &__txt-secondary::after {
+    font-family: "La Belle Aurore", cursive;
+    color: $color-primary-grey;
+    font-size: 1.5rem;
+    position: absolute;
+    left: -0.8rem;
+    margin: 0;
+  }
+
+  &__txt-bold::before {
+    content: "<h1>";
+    top: -35%;
+  }
+
+  &__txt-secondary::after {
+    content: "</h1>";
+    bottom: -30%;
+    font-size: 1.5rem;
+  }
+
+  &__btn-box {
+    position: absolute;
+    color: #fa782e; //// change to a variable
+    left: 50%;
+    bottom: 30%;
+    transform: translateX(-50%);
+  }
+
+  &__btn {
+    font-size: 1.8rem;
+    letter-spacing: 0.3rem;
+    font-family: "Open Sans", sans-serif;
+    border: 1px solid #08fdd8; //// change to a variable
+    border-radius: 2px;
+    text-decoration: none;
+    padding: 0.3rem 0.5rem;
+    box-shadow: 0 0.7rem 1.6rem rgba(black, 0.6);
+    transition: all 0.2s;
+  }
+
+  &__btn:active,
+  &__btn:visited {
+    color: inherit;
+  }
+
+  &__btn-box:hover &__btn {
+    cursor: pointer;
+    background-color: #08fdd8; //// change to a variable
+    //color: #252627; //// change to a variable
+  }
+
+  &__btn:active {
+    box-shadow: 0 0.3rem 1.2rem rgba(black, 0.6);
+    transform: translateY(0.2rem);
+  }
+
+  ////STYLING RIGHT SIDE-BAR NAVIGATION//////////////////////////////////
+  &__nav-bar {
+    float: right;
+    background-color: $nav-bar-bg-color;
+    height: 100%;
+    width: 8.8rem;
+  }
+  &__nav-bar:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  &__nav-box {
+    position: absolute;
+    top: 50%;
+    width: inherit;
+    text-align: center;
+    margin-right: auto;
+    transform: translateY(-50%);
+  }
+
+  &__nav-item {
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    height: 6rem;
+    width: inherit;
+    position: relative;
+    transition: transform 0.2s, background-color 0.2s,
+      color 0.2s cubic-bezier(0.13, 0.69, 0.72, 0.41);
+  }
+
+  &__nav-item:hover &__menu-txt {
+    background-position: 0 0;
+    color: $color-primary-grey;
+  }
+
+  &__nav-item:hover &__menu-icon {
+    transform: scale(1.05);
+    color: $color-primary-blue;
+    backface-visibility: hidden;
+  }
+
+  /*&__nav-item:active &__menu-txt{
+      color: #79fef9; //// change to a variable
+      transition: color.1s;
+    }*/
+  &__nav-item:active &__menu-icon {
+    transform: scale(0.95);
+    transition: transform 0.15s;
+  }
+
+  &__menu-txt {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: $color-primary-grey;
+    display: block;
+    text-align: center;
+    line-height: 1;
+    margin-top: 1rem;
+    padding: 0.2rem 0.5rem;
+    background-image: linear-gradient(
+      to left,
+      transparent,
+      transparent 50%,
+      $color-primary-blue 50%,
+      $color-primary-blue
+    );
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    transition: all 0.2s ease-in;
+  }
+
+  &__menu-icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "#{$icomoon-font-family}" !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    color: $color-primary-grey;
+    font-size: 2.5rem;
+    display: block;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ////STYLING SOCIAL MEDIA ICONS ON LEFT SIDE MAIN-SECTION///////////////////////////////
+  &__media-box {
+    height: 18rem;
+    width: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 2;
+    background-color: $media-box-bg-color;
+    transform: translateY(-50%);
+    border-radius: 0 4px 4px 0;
+    display: block;
+    overflow: hidden;
+  }
+  &__media-item {
+    padding: 0.5rem;
+    width: inherit;
+    height: 4.5rem;
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    display: table;
+    transition: all 0.2s;
+  }
+  &__media-item:hover &__media-icon {
+    transform: scale(1.05);
+    color: $color-primary-blue;
+  }
+  &__media-item:active &__media-icon {
+    transform: scale(1);
+  }
+
+  &__media-item:not(:last-child) {
+    border-bottom: $b-btm-media-icon;
+  }
+
+  &__media-icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "#{$icomoon-font-family}" !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    color: $color-primary-grey; //// change to a variable
+    font-size: 1.8rem;
+
+    display: table-cell;
+    vertical-align: middle;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+////STYLING SECTION-ABOUT /////////////////////////////////////////////
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+.section-about {
+  background-color: #515152; /// change to a variable later
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  color: #8b8b8b; /// change to a color variable later
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 1.4em;
+  border: 1px 0;
+  border: 1px solid #515152;
+
+  &__wraper {
+    padding: 0 8.8rem;
+    //height: 100vh;
+    margin: 0 auto;
+    display: grid;
+  }
+
+  @supports (display: grid) {
+    @media screen and (min-width: 900px) {
+      &__wraper {
+        grid-template-columns: repeat(6, minmax(8em, 1fr));
+        grid-template-rows: repeat(12, minmax(6em, 1fr));
+        grid-gap: 0.3em;
+        //////// item2-item7-item9-item10--- are text fields
+        grid-template-areas:
+          "item1 item1  item2 item2 item2 item2"
+          "item1 item1  item2 item2 item2 item2"
+          "item1 item1  item3 item3  item4 item4"
+          "item1 item1  item3 item3  item4 item4"
+          "item6 item6  item7 item7  item8 item8"
+          "item6 item6  item7 item7  item8 item8"
+          "item9 item9  item5 item5 item5 item5"
+          "item9 item9  item5 item5 item5 item5"
+          "item12 item12  item5 item5 item5 item5"
+          "item12 item12  item5 item5 item5 item5"
+          "item10 item10 item10 item10  item11 item11"
+          "item10 item10 item10 item10  item11 item11";
+      }
+
+      ///// SIZING TEXT FIELD////////////////////////
+      &__txt-box {
+        padding: 1.5em;
+        font-size: 1.1em;
+      }
+      &__overlay-content {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media screen and (min-width: 1400px) {
+      &__wraper {
+        grid-template-columns: repeat(10, minmax(8em, 1fr));
+        grid-template-rows: repeat(8, minmax(6em, 1fr));
+        grid-gap: 0.2em;
+        //////// item2-item7-item9-item10--- are text fields
+        grid-template-areas:
+          "item1 item1  item2 item2 item2 item2 item5 item5 item5 item5"
+          "item1 item1  item2 item2 item2 item2 item5 item5 item5 item5"
+          "item1 item1  item3 item3  item4 item4 item5 item5 item5 item5 "
+          "item1 item1  item3 item3  item4 item4 item5 item5 item5 item5"
+          "item6 item6 item6  item7 item7 item7  item8 item8 item9 item9"
+          "item6 item6 item6  item7 item7 item7  item8 item8 item9 item9"
+          "item10 item10 item10 item10  item11 item11  item8 item8 item12 item12"
+          "item10 item10 item10 item10  item11 item11  item8 item8 item12 item12";
+      }
+
+      ///// SIZING TEXT FIELD////////////////////////
+      &__txt-box {
+        font-size: 1.2em;
+        padding: 2em 4em;
+      }
+      &__overlay-content {
+        font-size: 1.2em;
+      }
+    }
+  }
+
+  /////////// DEFINE ELEMENT'S GRIDFIELD////////
+  @for $i from 1 through 12 {
+    &__grid-item-#{$i} {
+      grid-area: item#{$i};
+      align-items: center;
+      justify-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+
+  ///// STYLING TEXT FIELD////////////////////////
+  &__txt-box {
+    background-color: $bg-color-grid-txt;
+    color: inherit;
+    padding: 2em 3em;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title {
+    display: block;
+    text-align: center;
+    flex: 1;
+  }
+  &__main-content {
+    display: block;
+    text-align: center;
+    flex: 2;
+  }
+
+  ///// POSITIONING FADEINUP INFO////////////////////////
+  &__overlay-box {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+    right: 1rem;
+    //background-color: rgba(rgb(75, 15, 15), 0.3);  /// change to a variable later
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  &__overlay-content {
+    color: #c2c2c2; /// change to a variable later
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 2rem 3rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  ///// IMAGES///////////////
+  &__grid-img {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: saturate(0.3);
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.04);
+    transition: all ease-in-out 0.2s;
+  }
+}
+///HOVEREFECT///////////////////////
+
+[class^="section-about__grid-item-"]:hover .section-about__grid-img {
+  transform: scale(1);
+  //filter: grayscale(0.2);
+  filter: saturate(0.08);
+}
+[class^="section-about__grid-item-"]:hover .section-about__overlay-box {
+  opacity: 1;
+  background-color: rgba(rgb(75, 15, 15), 0.3); /// change to a variable later
+  span {
+    animation: fadeInUp 1s;
+  }
+}
+
+////STYLING SECTION-SKILLS/////////////////////////////////////////////
+
+.section-skills {
+  height: 100%;
+  width: 100%;
+  padding: 0 8.8rem 0 8.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #161718;
+
+  &__wraper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10rem 8rem;
+    background-color: #252627;
+  }
+
+  &__content {
+    padding: 5rem 8rem;
+    color: #818181;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #79fef9;
+      text-transform: uppercase;
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1rem;
+      text-indent: 1.2em;
+      font-size: 2rem;
+    }
+  }
+
+  &__skills-wraper {
+    padding: 1rem;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+  }
+
+  &__skills {
+    height: 18rem;
+    width: 18rem;
+    margin: 2rem;
+    border-radius: 50%;
+    //box-shadow: inset 1px 2px 5px 3px rgba(88, 105, 77, 0.5);
+    position: relative;
+  }
+  &__skills svg {
+    transform: rotate(90deg) scaleX(-1);
+  }
+  .br-skill {
+    cx: 50;
+    cy: 50;
+    r: 32.4;
+    stroke-width: 3;
+    fill: none;
+  }
+  .br-skill2 {
+    cx: 50;
+    cy: 50;
+    r: 25;
+    stroke-width: 8;
+    fill: none;
+  }
+  &__skills circle:nth-of-type(1) {
+    box-shadow: 0 0 3px 2px rgba(255, 255, 255, 0.5);
+    stroke: url(#GradientBigCircle);
+    fill: transparent;
+    //stroke: rgba(60, 0, 116, 0.753);
+  }
+  &__skills circle:nth-of-type(2) {
+    stroke: rgb(146, 144, 143);
+    //stroke-dasharray: 0;
+    //stroke-dashoffset: 0;
+    transition: all 1.8s ease-in-out;
+  }
+
+  &__skills circle:nth-of-type(3) {
+    stroke: rgb(146, 144, 143); //same color as circle:nth-of-type(5)
+  }
+
+  &__skills circle:nth-of-type(4) {
+    box-shadow: 0 0 3px 2px rgba(255, 255, 255, 0.5);
+    stroke-width: 7.9;
+    stroke: url(#GradientBigCircle2);
+    //stroke:url(#GradientSmallCircle);
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    fill: transparent;
+    //stroke: rgba(60, 0, 116, 0.753);
+  }
+  &__skills circle:nth-of-type(5) {
+    stroke: rgb(146, 144, 143); //same color as circle:nth-of-type(5)
+    transition: all 1.8s ease-in-out;
+  }
+
+  &__br-txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
+    color: $color-primary-blue; /// change later to a variable
+    line-height: 100%;
+    text-align: center;
+    font-weight: 200;
+  }
+
+  &__name-of-skill {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #79fef9;
+    font-size: 2.5em;
+    text-overflow: ellipsis;
+  }
+}

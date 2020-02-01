@@ -1,0 +1,222 @@
+///NAVIGATION - FADE IN/OUT //////////////////
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 8rem;
+  z-index: 100;
+  opacity: 1;
+
+  &__menu-out,
+  &__navigation {
+    display: block;
+    width: 50%;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    z-index: 999;
+    //transform: scale(0);
+    transition: height 0.2s ease-out;
+  }
+
+  &__menu-out {
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+    transform-origin: left;
+    // background-color: var(--fade-in-out-left); ////////////
+    background-color: rgba(51, 51, 51, 0.8);
+  }
+
+  &__navigation {
+    top: 0;
+    right: 0;
+    transform-origin: top;
+    // background-color: var(--fade-in-out-right); ////////////
+    background-color: rgba(214, 65, 65, 0.75);
+  }
+
+  //////FADE IN/OUT BUILD ON CHECKBOX PROPERTY :checked///////////
+
+  &__checkbox:checked ~ &__navigation {
+    opacity: 1;
+    height: 100%;
+    //transform: scale(1);
+    visibility: visible;
+    transition: height 0.4s cubic-bezier(0.7, 0.01, 0.43, 0.9),
+      opacity 0.3s ease-out;
+  }
+
+  &__checkbox:checked ~ &__menu-out {
+    opacity: 1;
+    height: 100%;
+    //transform: scale(1);
+    visibility: visible;
+    transition: height 0.4s cubic-bezier(0.7, 0.01, 0.43, 0.9),
+      opacity 0.3s ease-out;
+  }
+
+  &__checkbox:checked ~ &__navigation > &__nav-box {
+    right: 50%;
+    transition: right 0.6s cubic-bezier(0.87, 0.51, 0.46, 1.12) 0.2s;
+  }
+}
+
+///MAIN SECTION - HOME//////////////////////////////////////////////////
+.container {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.main-section {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+
+  &__left-side,
+  &__right-side {
+    position: absolute;
+    top: 0;
+    height: 100%; ///HEIGHT
+    width: 50%;
+  }
+  &__left-side {
+    left: 0;
+  }
+  &__right-side {
+    right: 0;
+    background-color: #252627; //////Make bg as a varible later
+  }
+
+  ////STYLING LEFT SIDE MAIN-SECTION///////////////////////////////////////
+
+  /// DOT PATTERN ////////////////////////
+  &__box,
+  &__box:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    list-style: none;
+    height: inherit;
+    //z-index: 0;
+    overflow: hidden;
+  }
+  /// DOT PATTERN --- CHANCHE LETER TO SOME GRADIENT///
+  &__box:after {
+    content: "";
+    background-image: linear-gradient(to right, #494444 0%, #28323b 100%);
+    opacity: 0.7;
+  }
+
+  //////////////////IMAGES/////////////////
+  &__slide-item {
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin: 0 auto;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 105%;
+    height: 105%;
+    object-fit: fill;
+    overflow: hidden;
+  }
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent;
+    z-index: 0;
+    opacity: 0;
+    animation: SlideAnimation 80s infinite linear 0s;
+  }
+
+  &__slide-item:nth-of-type(1) span {
+    background-image: url(../img/1.jpg);
+  }
+
+  &__slide-item:nth-of-type(2) span {
+    background-image: url(../img/2.jpg);
+    animation-delay: 20s;
+  }
+
+  &__slide-item:nth-of-type(3) span {
+    background-image: url(../img/3.jpg);
+    animation-delay: 40s;
+  }
+
+  &__slide-item:nth-of-type(4) span {
+    background-image: url(../img/4.jpg);
+    animation-delay: 60s;
+  }
+  &__txt {
+    opacity: 0;
+  }
+
+  ////STYLING RIGHT SIDE OF MAIN-SECTION///////////////////////////////////////
+}
+
+//// ANIMATION///////////////////////////
+@-webkit-keyframes SlideAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+    transform: scale(1.04);
+  }
+  6% {
+    opacity: 1;
+    transform: scale(1.06) translate(-1rem, 1rem);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.1) translateX(-4rem);
+  }
+  31% {
+    opacity: 0;
+    animation-timing-function: ease-out;
+    transform: scale(1.09);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes SlideAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+    transform: scale(1.04);
+  }
+  6% {
+    opacity: 1;
+    transform: scale(1.06) translate(-1rem, 1rem);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.1) translateX(-4rem);
+  }
+  31% {
+    opacity: 0;
+    animation-timing-function: ease-out;
+    transform: scale(1.09);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+////STYLING SECTION-ABOUT /////////////////////////////////////////////
+.fst-section {
+  height: 100rem;
+  background: orangered;
+}
