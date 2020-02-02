@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   var progresBarrPercentage2 = 85; //second barr
 
-  var progresBarrPercentage3 = 55; //third barr
+  var progresBarrPercentage3 = 45; //third barr
 
   var animationDuration = 1.8; /// same value as in transition property
   //for &__skills circle:nth-of-type(5) and &__skills circle:nth-of-type(2)
